@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import './variables.scss'; 
+
+@theme {
+  --color-brand-green: #{$color-green};
+  --color-brand-dark: #{$color-dark};
+  --color-brand-bg: #{$color-background};
+  --color-brand-white: #{$color-white};
+  --color-brand-blue: #{$color-blue};
+  --color-brand-pink: #{$color-pink};
+  --color-brand-gray: #{$color-gray};
+  --color-brand-light-gray: #{$color-light-gray};
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-background;
+}
