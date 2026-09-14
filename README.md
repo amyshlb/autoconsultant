@@ -1,34 +1,46 @@
-# vue-project
+# Проект: Автоконсультант (AutoConsultant)
 
-This template should help get you started developing with Vue 3 in Vite.
+Учебный проект адаптивной вёрстки на **Vue 3** и **Vite**.
 
-## Recommended IDE Setup
+---
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Инструкция по запуску
 
-## Recommended Browser Setup
+Чтобы запустить проект локально на своем компьютере, выполните следующие шаги в терминале:
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+### 1. Клонирование репозитория
 
-## Customize configuration
+```bash
+git clone https://github.com
+```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### 2. Переход в папку проекта
 
-## Project Setup
+```bash
+cd vue-project
+```
 
-```sh
+### 3. Установка зависимостей
+
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 4. Запуск сервера для разработки
 
-```sh
+```bash
 npm run dev
 ```
 
-`
+После запуска терминал выдаст ссылку, по которой можно открыть сайт в браузере.
+
+---
+
+## 🛠️ Технологии в стеке
+
+- **Vue 3** (Composition API)
+- **Vite** (Сборщик проекта)
+- **Tailwind CSS** (Утилитарный CSS-фреймворк для быстрой стилизации)
+- **SCSS / SASS** (Препроцессор для сложных или кастомных стилей)
+
+---
