@@ -5,17 +5,17 @@
       
       <div class="flex flex-col justify-start items-start pt-[20px] w-[769px] shrink-0 max-md:w-full max-md:pt-0">
         
-        <h1 class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:text-[38px] max-md:leading-[36px]">
+        <h1 class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:mx-[-20px] max-md:text-[38px] max-md:leading-[36px]">
           Автоконсультант <br>
           в вашем смартфоне
         </h1>
-        <div class="hidden max-md:flex w-[112px] h-[37px] items-center justify-center bg-brand-blue text-brand-white font-bold text-[13px] rounded-[24px] whitespace-nowrap rotate-[5.17deg] translate-x-[200px] translate-y-[-100px] mb-[-50px]">
+        <div class="hidden max-md:flex w-[112px] h-[37px] items-center justify-center bg-brand-blue text-brand-white font-bold text-[13px] rounded-[24px] whitespace-nowrap rotate-[5.17deg] translate-x-[180px] translate-y-[-100px] mb-[-50px]">
           телеграм-бот
         </div>
         
 
-        <div class="relative w-full max-w-[769px] h-auto mb-[48px] max-md:max-w-full max-md:h-[150px]">
-          <p class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:text-[19px] max-md:leading-[24px]">
+        <div class="relative w-full max-w-[769px] h-auto mb-[48px] max-md:max-w-full max-md:h-[150px] max-md:mx-[-20px]">
+          <p class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:w-[335px] max-md:h-[96px] max-md:text-[19px] max-md:leading-[24px]">
             <span class="max-md:hidden">
               Бот помогает следить за техническим <br>
               состоянием вашего автомобиля <br>
@@ -24,19 +24,19 @@
             </span>
 
             <span class="hidden max-md:block">
-              Бот помогает следить за техническим <br> 
-              состоянием вашего автомобиля <br> 
-              и сообщит о необходимости <br>
+              Бот помогает следить за техническим <br>
+              состоянием вашего автомобиля <br>
+              и сообщит о необходимости 
               сервисного обслуживания
             </span>
             </p>
 
-      <div class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px]">
+      <div class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px] max-md:translate-x-[50px] max-md:translate-y-0">
         <img src="../assets/images/phrase.svg" alt="и не только об этом" class="w-full h-full object-contain">
       </div>
         </div>
 
-        <a href="#buy" class="w-[378px] h-[132px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[48px] shadow-sm transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[18px] max-md:w-[335px] max-md:h-[60px] max-md:rounded-[20px] max-md:text-[17px] max-md:mt-[-44px]">
+        <a href="#buy" class="w-[378px] h-[132px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[48px] shadow-sm transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[18px] max-md:w-[335px] max-md:h-[60px] max-md:mx-[-20px] max-md:rounded-[20px] max-md:text-[17px] max-md:mt-[-44px]">
           Хочу купить
         </a>
 
@@ -47,7 +47,7 @@
           телеграм-бот
         </div>
         
-        <img src="../assets/images/phone.svg" alt="Телефон" class="w-full h-full object-contain relative z-20">
+        <img src="../assets/images/phone.svg" alt="Телефон" class="w-full h-full object-contain relative z-20 max-md:mx-[-20px]">
         
       </div>
     </div>
