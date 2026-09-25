@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full max-w-[1440px] mx-auto pt-[28px] px-[80px] max-md:px-[56px] bg-transparent">
+  <header class="w-full max-w-[1440px] mx-auto pt-[28px] px-[80px] max-md:px-[20px] bg-transparent">
 
     <div class="w-full flex items-center justify-between">
 
@@ -53,7 +53,7 @@
   </header>
     <nav
       v-if="isMenuOpen"
-      class="md:hidden w-full px-[56px] pt-[100px]"
+      class="md:hidden w-full px-[20px] pt-[100px]"
     >
       <div class="w-full flex flex-col gap-[16px]">
 
