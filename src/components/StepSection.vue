@@ -6,7 +6,7 @@
           АвтоКонсультант?
         </h1>
 
-        <div class="flex flex-col gap-[24px] w-full max-w-[1248px] mx-auto max-md:w-full max-md:w-[335px] max-md:px-[20px]">
+        <div class="flex flex-col gap-[24px] w-full max-w-[1248px] mx-auto max-md:w-full max-md:px-[20px] max-md:box-border">
           
           <div class="relative flex items-start justify-between w-full h-[430px] bg-brand-light-gray rounded-[52px] pl-[40px] pr-[80px] shadow-sm overflow-hidden max-md:h-[416px] max-md:rounded-[40px] max-md:p-0">
             <div class="flex flex-col items-start max-w-[566px] pt-[40px] translate-x-[5px] translate-y-[10px] max-md:w-full max-md:max-w-none max-md:pt-[24px] max-md:px-[24px]">
@@ -55,7 +55,7 @@
             </div>
           </div>
 
-            <div class="relative w-full max-w-[1248px] h-[702px] bg-brand-light-gray rounded-[52px] mx-auto mt-[36px] mb-[-56px] shadow-sm overflow-hidden flex items-center justify-center group cursor-pointer max-md:w-full max-md:w-[335px] max-md:h-[184px] max-md:rounded-[24px] max-md:mt-[16px] max-md:mb-0">            
+            <div class="relative w-full max-w-[1248px] h-[702px] bg-brand-light-gray rounded-[52px] mx-auto mt-[36px] mb-[-56px] shadow-sm overflow-hidden flex items-center justify-center group cursor-pointer max-md:w-full max-md:h-[184px] max-md:rounded-[24px] max-md:mt-[16px] max-md:mb-0">            
                 <div class="w-[131.52px] h-[133.91px] bg-brand-white rounded-full flex items-center justify-center shadow-lg translate-x-[10px] translate-y-[10px] group-hover:scale-105 transition-transform duration-300 z-10 max-md:w-[35px] max-md:h-[36px]">
                   <img src="../assets/images/pause.svg" alt="Пауза" class="w-full h-full object-contain">
                 </div>
