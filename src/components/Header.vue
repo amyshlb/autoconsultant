@@ -59,7 +59,7 @@
 
         <a
           href="#how-it-works"
-          @click="isMenuOpen = false"
+          @click.prevent="goToSection('#how-it-works')"
           class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
         >
           Как работает бот
@@ -67,7 +67,7 @@
 
         <a
           href="#faq"
-          @click="isMenuOpen = false"
+          @click.prevent="goToSection('#faq')"
           class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
         >
           Вопросы и ответы
@@ -75,7 +75,7 @@
 
         <a
           href="#buy"
-          @click="isMenuOpen = false"
+          @click.prevent="goToSection('#buy')"
           class="w-full h-[60px] mt-[31px] bg-brand-green text-brand-dark text-[17px] font-semibold rounded-[20px] flex items-center justify-center"
         >
           Хочу купить
@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 
 const navLinks = ref([
   { href: '#how-it-works', label: 'Как работает бот' },
@@ -95,4 +95,15 @@ const navLinks = ref([
 ]);
 const isMenuOpen = ref(false);
 const emit = defineEmits(['menu-toggle']);
+const goToSection = async (id) => {
+  isMenuOpen.value = false;
+  emit('menu-toggle', false);
+
+  await nextTick();
+
+  document.querySelector(id)?.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+};
 </script>
