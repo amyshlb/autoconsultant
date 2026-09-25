@@ -3,30 +3,30 @@
     <Header @menu-toggle="isMenuOpen = $event" />
     
     <div v-if="!isMenuOpen">
-        <main class="main-section w-full max-w-[1440px] mx-auto px-[40px] mt-[92px]">
+        <main class="main-section w-full max-w-[1440px] mx-auto px-[40px] mt-[92px] max-md:px-0">
             <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                 <HeroSection />
             </div>
         </main>
 
-        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px]">
+        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
             <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                 <StepSection class="pb-[120px]"/>
             </div>
         </section>
 
-        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px]">
+        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
             <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                 <BuySection/> 
             </div>
         </section>
 
-        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px]">
+        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
             <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                 <FaqSection class="pb-[60px]" />
             </div>
         </section>
-        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] relative z-10">
+        <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] relative z-10 max-md:px-0">
             <div class="bg-brand-white rounded-[60px] shadow-sm relative w-full">
                 <PriceSection/>
             </div>
