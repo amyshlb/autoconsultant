@@ -1,10 +1,10 @@
 <template>
-  <div id="faq" class="w-full flex flex-col items-center pt-[92px] px-10 box-border max-md:w-[375px] max-md:min-h-[544px] max-md:h-auto max-md:px-0 max-md:pt-[40px] max-md:rounded-[32px]">
+  <div id="faq" class="w-full flex flex-col items-center pt-[92px] px-10 box-border max-md:w-full max-md:min-h-[544px] max-md:h-auto max-md:px-[20px] max-md:pt-[40px] max-md:rounded-[32px]">
       <h1 class="text-[128px] leading-[128px] font-extrabold text-center tracking-[-1px] mb-[60px] w-full text-brand-dark translate-x-[-5px] translate-y-[10px] max-md:w-[331px] max-md:h-[72px] max-md:text-[38px] max-md:leading-[36px] max-md:mb-[40px]">
       Вопросы и ответы
     </h1>
     
-    <div class="w-full max-w-[1204px] min-h-[340px] bg-brand-bg rounded-[40px] pt-12 pb-6 px-10 flex flex-col box-border mx-auto translate-y-[8px] max-md:w-[335px] max-md:h-auto max-md:min-h-[352px] max-md:rounded-[24px] max-md:pt-[32px] max-md:pr-[16px] max-md:pb-[32px] max-md:pl-[16px] max-md:translate-y-0">
+    <div class="w-full max-w-[1204px] min-h-[340px] bg-brand-bg rounded-[40px] pt-12 pb-6 px-10 flex flex-col box-border mx-auto translate-y-[8px] max-md:w-full max-md:h-auto max-md:min-h-[352px] max-md:rounded-[24px] max-md:pt-[32px] max-md:pr-[16px] max-md:pb-[32px] max-md:pl-[16px] max-md:translate-y-0">
       <div v-for="(item, index) in faqList" :key="index" class="w-full flex flex-col border-b border-brand-grayish pb-[16px] mb-[26px]">
         
         <button type="button" @click="toggleAccordion(index)"class="w-full flex items-center justify-between text-left font-regular text-[32px] leading-[38px] text-brand-dark  transition-colors duration-200 cursor-pointer group translate-y-[10px] max-md:text-[20px] max-md:leading-[24px] max-md:translate-y-0">
