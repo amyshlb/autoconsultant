@@ -1,6 +1,6 @@
 <template>
-    <div class="w-[1360px] flex items-start justify-between pt-[98px] px-[92px] box-border relative min-h-[816px] z-0 overflow-visible max-md:w-[375px] max-md:h-[406px] max-md:min-h-0 max-md:p-0 max-md:rounded-[60px]">
-        <div class="w-[692px] min-h-[653px] bg-brand-bg rounded-[48px] p-12 flex flex-col gap-9 box-border mt-[7px] max-md:w-[335px] max-md:h-[320px] max-md:min-h-0 max-md:rounded-[24px] max-md:p-[24px] max-md:gap-[17.43px] max-md:mx-auto max-md:mt-[48px]">
+    <div class="w-[1360px] flex items-start justify-between pt-[98px] px-[92px] box-border relative min-h-[816px] z-0 overflow-visible max-md:w-full max-md:h-[406px] max-md:min-h-0 max-md:px-[20px] max-md:pt-0 max-md:box-border max-md:rounded-[60px]">
+        <div class="w-[692px] min-h-[653px] bg-brand-bg rounded-[48px] p-12 flex flex-col gap-9 box-border mt-[7px] max-md:w-full max-md:max-w-[335px] max-md:h-[320px] max-md:min-h-0 max-md:rounded-[24px] max-md:p-[24px] max-md:gap-[17.43px] max-md:mx-auto max-md:mt-[48px]">
             <div class="flex flex-col">
                 <div class="text-[164px] font-black leading-[156px] tracking-[-1px] text-brand-black max-md:text-[80px] max-md:leading-[80px] max-md:tracking-[-0.48px]">2000₸</div>
                 <div class="text-[56px] font-extrabold leading-[65px] tracking-[-1px] text-brand-black mt-2 translate-x-[-2px] translate-y-[-15px] max-md:text-[28px] max-md:leading-[32px] max-md:tracking-[-0.48px] max-md:mt-0 max-md:translate-x-0">в год</div>
