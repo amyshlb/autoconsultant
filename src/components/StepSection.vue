@@ -1,5 +1,5 @@
 <template>
-  <section id="how-it-works" class="w-full max-w-[1440px] mx-auto pt-[96px] pb-[100px] pl-[24px] px-[40px] flex flex-col items-center box-border max-md:pt-[40px] max-md:pb-[48px]">
+  <section id="how-it-works" class="w-full max-w-[1440px] mx-auto pt-[96px] pb-[100px] pl-[24px] px-[40px] flex flex-col items-center box-border max-md:px-0 max-md:pt-[40px] max-md:pb-[48px]">
           
         <h1 class="text-[128px] font-extrabold leading-[120px] tracking-[-1px] mb-[60px] translate-x-[-10px] translate-y-[5px] max-md:w-[335px] max-md:text-[36px] max-md:leading-[36px] max-md:mb-[32px] max-md:translate-x-0">
           Как работает <br>
