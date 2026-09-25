@@ -1,11 +1,11 @@
 <template>
   <section class="hero-section w-full bg-brand-white text-brand-dark select-none box-border flex flex-col max-md:rounded-[32px]">
     
-    <div class="top-row relative flex flex-nowrap justify-between items-start pt-[36px] pl-[56px] pr-[56px] pb-[60px] w-full max-w-[1440px] mx-auto box-border max-md:flex-col max-md:px-[36px]">
+    <div class="top-row relative flex flex-nowrap justify-between items-start pt-[36px] pb-[60px] w-full max-w-[1248px] mx-auto box-border max-md:w-full max-md:max-w-none max-md:flex-col max-md:px-[36px]">
       
       <div class="flex flex-col justify-start items-start pt-[20px] w-[769px] shrink-0 max-md:w-full max-md:pt-0">
         
-        <h1 class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:mx-[-20px] max-md:text-[38px] max-md:leading-[36px]">
+        <h1 class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:mx-[-20px] max-md:w-full max-md:max-w-[335px] max-md:text-[38px] max-md:leading-[36px]">
           Автоконсультант <br>
           в вашем смартфоне
         </h1>
@@ -15,7 +15,7 @@
         
 
         <div class="relative w-full max-w-[769px] h-auto mb-[48px] max-md:max-w-full max-md:h-[150px] max-md:mx-[-20px]">
-          <p class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:w-[335px] max-md:h-[96px] max-md:text-[19px] max-md:leading-[24px]">
+          <p class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:w-full max-md:max-w-[335px] max-md:h-[96px] max-md:text-[19px] max-md:leading-[24px]">
             <span class="max-md:hidden">
               Бот помогает следить за техническим <br>
               состоянием вашего автомобиля <br>
@@ -31,19 +31,19 @@
             </span>
             </p>
 
-      <div class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px] max-md:translate-x-[50px] max-md:translate-y-0">
+      <div class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-full max-md:max-w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px] max-md:translate-x-[50px] max-md:translate-y-0">
         <img src="../assets/images/phrase.svg" alt="и не только об этом" class="w-full h-full object-contain">
       </div>
         </div>
 
-        <a href="#buy" class="w-[378px] h-[132px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[48px] shadow-sm transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[18px] max-md:w-[335px] max-md:h-[60px] max-md:mx-[-20px] max-md:rounded-[20px] max-md:text-[17px] max-md:mt-[-44px]">
+        <a href="#buy" class="w-[378px] h-[132px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[48px] shadow-sm transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[18px] max-md:w-full max-md:max-w-[335px] max-md:h-[60px] max-md:mx-0 max-md:rounded-[20px] max-md:text-[17px] max-md:mt-[-44px]">
           Хочу купить
         </a>
 
       </div>
 
-      <div class="absolute top-[190px] left-[880px] w-[394px] h-[790px] z-20 max-md:static max-md:w-[267px] max-md:h-[535px] max-md:ml-[36px] max-md:mt-[32px]">        
-        <div class="telegram-badge absolute top-[10px] left-[-180px] bg-brand-blue text-brand-white font-bold text-[28px] tracking-[-1px] px-[24px] py-[20px] rounded-[44px] shadow-md z-30 whitespace-nowrap max-md:hidden">
+      <div class="absolute top-[200px] right-[22px] w-[394px] h-[790px] z-20 max-md:static max-md:w-full max-md:max-w-[267px] max-md:h-[535px] max-md:ml-[44px] max-md:mt-[32px]">
+        <div class="telegram-badge absolute top-[10px] left-[-185px] bg-brand-blue text-brand-white font-bold text-[28px] tracking-[-1px] px-[24px] py-[20px] rounded-[44px] shadow-md z-30 whitespace-nowrap max-md:hidden">
           телеграм-бот
         </div>
         
