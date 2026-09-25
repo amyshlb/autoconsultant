@@ -1,0 +1,41 @@
+/* На самый верх файла, перед tailwindcss */
+@import url('https://googleapis.com');
+
+@import "tailwindcss";
+@import './variables.scss'; 
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-brand-green: #{$color-green};
+  --color-brand-dark: #{$color-dark};
+  --color-brand-bg: #{$color-background};
+  --color-brand-white: #{$color-white};
+  --color-brand-blue: #{$color-blue};
+  --color-brand-pink: #{$color-pink};
+  --color-brand-gray: #{$color-gray};
+  --color-brand-light-gray: #{$color-light-gray};
+  --color-brand-black: #{$color-black};
+  --color-brand-grayish: #{$color-grayish};
+  --color-brand-new-gray: #{$color-new-gray};
+  --color-brand-dark-gree: #{$color-dark-green};
+  --color-brand-secondary-black: #{$color-secondary-black};
+  --color-brand-secondary-gray: #{$color-secondary-gray};
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: $color-background;
+}
+
+.font-black {
+  font-weight: 900 !important;
+}
+.font-extrabold {
+  font-weight: 800 !important;
+}
