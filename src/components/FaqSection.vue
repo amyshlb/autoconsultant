@@ -1,6 +1,6 @@
 <template>
   <div id="faq" class="w-full flex flex-col items-center pt-[92px] px-10 box-border max-md:w-[375px] max-md:min-h-[544px] max-md:h-auto max-md:px-0 max-md:pt-[40px] max-md:rounded-[32px]">
-      <h1 class="text-[128px] leading-[128px] font-extrabold text-center tracking-[-1px] mb-[60px] w-full text-brand-dark translate-x-[-5px] translate-y-[10px] max-md:w-[331px] max-md:h-[72px] max-md:text-[38px] max-md:leading-[36px] max-md:mb-[40px] max-md:translate-x-0 max-md:translate-y-0">
+      <h1 class="text-[128px] leading-[128px] font-extrabold text-center tracking-[-1px] mb-[60px] w-full text-brand-dark translate-x-[-5px] translate-y-[10px] max-md:w-[331px] max-md:h-[72px] max-md:text-[38px] max-md:leading-[36px] max-md:mb-[40px]">
       Вопросы и ответы
     </h1>
     

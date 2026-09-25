@@ -16,7 +16,7 @@
 
         </div>
         
-        <h2 class="relative z-10 text-[80px] leading-[80px] font-extrabold text-brand-white text-center tracking-[-1px] w-full max-w-[1200px] translate-x-[4px] translate-y-[-8px] max-md:w-[335px] max-md:h-[108px] max-md:text-[35px] max-md:leading-[36px] max-md:max-w-none max-md:translate-x-0 max-md:translate-y-0">
+        <h2 class="relative z-10 text-[80px] leading-[80px] font-extrabold text-brand-white text-center tracking-[-1px] w-full max-w-[1200px] translate-x-[4px] translate-y-[-8px] max-md:w-[335px] max-md:h-[108px] max-md:text-[35px] max-md:leading-[36px] max-md:max-w-none">
             Ваш персональный <br>
             АвтоКонсультант в кармане
         </h2>
@@ -30,7 +30,7 @@
         напомнит когда пора менять масло или обновить срок действия автостраховки
         </p>
 
-        <button class="relative z-10 w-[254px] h-[92px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[28px] shadow-sm translate-x-[4px] translate-y-[18px] transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[40px] max-md:w-[189px] max-md:h-[60px] max-md:text-[17px] max-md:rounded-[20px] max-md:mt-[40px] max-md:translate-x-0 max-md:translate-y-0">
+        <button class="relative z-10 w-[254px] h-[92px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[28px] shadow-sm translate-x-[4px] translate-y-[18px] transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[40px] max-md:w-[189px] max-md:h-[60px] max-md:text-[17px] max-md:rounded-[20px] max-md:mt-[40px]">
         Купить
         </button>
 
