@@ -19,7 +19,7 @@
 ### 1. Клонирование репозитория
 
 ```bash
-git clone https://github.com
+git clone https://github.com/amyshlb/autoconsultant.git
 ```
 
 ### 2. Установка зависимостей
