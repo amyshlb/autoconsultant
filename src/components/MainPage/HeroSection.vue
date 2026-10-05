@@ -92,28 +92,28 @@
             >
                 <ReminderCard
                     title="необходимо заменить масло"
-                    image="../../assets/images/oil.svg"
+                    :image="oilImage"
                     imageClass="w-[250px] max-h-[115px] max-md:w-[156px] max-md:h-[70px] translate-x-[10px] max-md:translate-x-[-5px] translate-y-[-10px]"
                     textClass="translate-x-[5px] translate-y-[5px]"
                 />
 
                 <ReminderCard
                     title="пройти техосмотр"
-                    image="../../assets/images/car.svg"
+                    :image="carImage"
                     imageClass="w-[286px] max-h-[174px] max-md:w-[158px] max-md:h-[96px] translate-x-[-5px] translate-y-[0px]"
                     textClass="translate-x-[-10px] translate-y-[5px]"
                 />
 
                 <ReminderCard
                     title="продлить страховку"
-                    image="../../assets/images/insurance.svg"
+                    :image="insuranceImage"
                     imageClass="w-[212px] max-h-[182px] max-md:w-[112px] max-md:h-[96px] translate-x-[10px] translate-y-[5px]"
                     textClass="translate-x-[8px] translate-y-[10px]"
                 />
 
                 <ReminderCard
                     title="и о многом другом"
-                    image="../../assets/images/more.svg"
+                    :image="moreImage"
                     imageClass="w-[550px] max-h-[192px] max-md:w-[378px] max-md:h-[106px] translate-x-[30px] translate-y-[0px]"
                     textClass="translate-x-[-10px] translate-y-[10px]"
                 />
@@ -124,6 +124,10 @@
 
 <script setup>
 import ReminderCard from './ReminderCard.vue';
+import oilImage from '../../assets/images/oil.svg';
+import carImage from '../../assets/images/car.svg';
+import insuranceImage from '../../assets/images/insurance.svg';
+import moreImage from '../../assets/images/more.svg';
 </script>
 
 <style lang="scss" scoped>
