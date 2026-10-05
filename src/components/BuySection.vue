@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         id="buy"
         class="buy-section relative w-full max-w-[1360px] min-h-[620px] bg-brand-black flex flex-col items-center justify-center overflow-hidden rounded-[54px] mx-auto px-4 max-md:w-[375px] max-md:h-[388px] max-md:min-h-0 max-md:rounded-[32px] max-md:px-0"
     >
@@ -9,10 +9,10 @@
             <picture>
                 <source
                     media="(max-width: 767px)"
-                    :srcset="mobileCar"
+                    src="../assets/images/black-car-mobile.svg"
                 >
                 <img
-                    :src="desktopCar"
+                    src="../assets/images/black-car-desktop.svg"
                     alt="Черный автомобиль"
                     class="w-full h-full object-contain"
                 >
@@ -44,10 +44,5 @@
         >
             Купить
         </button>
-    </section>
+    </div>
 </template>
-
-<script setup>
-import desktopCar from '../assets/images/black-car-desktop.svg';
-import mobileCar from '../assets/images/black-car-mobile.svg';
-</script>
