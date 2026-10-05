@@ -9,10 +9,10 @@
             <picture>
                 <source
                     media="(max-width: 767px)"
-                    src="../assets/images/black-car-mobile.svg"
+                    src="../../assets/images/black-car-mobile.svg"
                 >
                 <img
-                    src="../assets/images/black-car-desktop.svg"
+                    src="../../assets/images/black-car-desktop.svg"
                     alt="Черный автомобиль"
                     class="w-full h-full object-contain"
                 >
