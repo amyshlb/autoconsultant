@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         id="how-it-works"
         class="w-full max-w-[1440px] mx-auto pt-[96px] pb-[100px] pl-[24px] px-[40px] flex flex-col items-center box-border max-md:px-0 max-md:pt-[40px] max-md:pb-[48px]"
     >
@@ -126,5 +126,5 @@
 
         </div>
 
-    </section>
+    </div>
 </template>
