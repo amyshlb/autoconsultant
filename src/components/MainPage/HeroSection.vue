@@ -1,5 +1,5 @@
 <template>
-    <section
+    <div
         class="hero-section w-full bg-brand-white text-brand-dark select-none box-border flex flex-col max-md:rounded-[32px]"
     >
         <div
@@ -119,7 +119,7 @@
                 />
             </div>
         </div>
-    </section>
+    </div>
 </template>
 
 <script setup>

@@ -55,7 +55,7 @@
             class="absolute top-[-40px] right-[66px] w-[429px] h-[860px] transform -rotate-[-6.04deg] pointer-events-none select-none z-20 translate-x-[-5px] translate-y-[5px] max-md:hidden"
         >
             <img
-                src="../assets/images/phone.svg"
+                src="../../assets/images/phone.svg"
                 alt="Телефон"
                 class="w-full h-full object-contain"
             />

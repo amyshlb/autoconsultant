@@ -25,7 +25,7 @@
                         <a
                             v-if="link.isButton"
                             :href="link.href"
-                            class="..."
+                            class="bg-brand-dark text-brand-white text-[20px] font-semibold rounded-[16px] tracking-[-1px] px-[24px] py-[8px]"
                         >
                             {{ link.label }}
                         </a>
@@ -33,7 +33,6 @@
                         <a
                             v-else
                             :href="link.href"
-                            class="..."
                         >
                             {{ link.label }}
                         </a>

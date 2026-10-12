@@ -20,38 +20,32 @@
         ></span>
     </button>
 
-        <nav
-            :class="isMenuOpen ? 'block' : 'hidden'"
-            class="fixed inset-0 z-40 md:hidden bg-brand-bg px-[20px] pt-[100px]"
-        >
-            <div class="w-full flex flex-col gap-[16px]">
+    <nav
+        :class="isMenuOpen ? 'block' : 'hidden'"
+        class="fixed inset-0 z-40 md:hidden bg-brand-bg px-[20px] pt-[100px]"
+    >
+        <div class="w-full flex flex-col gap-[16px]">
 
-                <a
-                href="#how-it-works"
-                @click.prevent="goToSection('#how-it-works')"
+            <a
+                v-for="link in menuLinks"
+                :key="link.href"
+                :href="link.href"
+                @click.prevent="goToSection(link.href)"
                 class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
-                >
-                Как работает бот
-                </a>
+            >
+                {{ link.text }}
+            </a>
 
-                <a
-                href="#faq"
-                @click.prevent="goToSection('#faq')"
-                class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
-                >
-                Вопросы и ответы
-                </a>
-
-                <a
+            <a
                 href="#buy"
                 @click.prevent="goToSection('#buy')"
                 class="w-full h-[60px] mt-[31px] bg-brand-green text-brand-dark text-[17px] font-semibold rounded-[20px] flex items-center justify-center"
-                >
+            >
                 Хочу купить
-                </a>
+            </a>
 
-            </div>
-        </nav>
+        </div>
+    </nav>
 </template>
 
 
@@ -67,4 +61,15 @@ const goToSection = (id) => {
     block: 'start',
   });
 };
+
+const menuLinks = [
+    {
+        href: '#how-it-works',
+        text: 'Как работает бот',
+    },
+    {
+        href: '#faq',
+        text: 'Вопросы и ответы',
+    },
+]
 </script>

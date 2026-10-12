@@ -34,20 +34,18 @@
 
             <Footer class="mt-[16px] relative z-0" />
         </main>
-
-
 </template>
 
 <script setup>
 import AOS from 'aos';
 import { onMounted } from 'vue';
 import 'aos/dist/aos.css';
-import Header from './components/MainPage/Header.vue';
+import Header from './components/Header.vue';
 import HeroSection from './components/MainPage/HeroSection.vue';
-import StepSection from './components/StepSection.vue';
-import BuySection from './components/BuySection.vue';
-import FaqSection from './components/FaqSection.vue';
-import PriceSection from './components/PriceSection.vue';
+import StepSection from './components/MainPage/StepSection.vue';
+import BuySection from './components/MainPage/BuySection.vue';
+import FaqSection from './components/MainPage/FaqSection.vue';
+import PriceSection from './components/MainPage/PriceSection.vue';
 import Footer from './components/Footer.vue';
 
 onMounted(() => {
