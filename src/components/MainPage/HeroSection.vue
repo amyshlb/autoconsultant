@@ -46,7 +46,7 @@
                         class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-full max-md:max-w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px] max-md:translate-x-[50px] max-md:translate-y-0"
                     >
                         <img
-                            src="../../assets/images/phrase.svg"
+                            src="@/assets/images/phrase.svg"
                             alt="и не только об этом"
                             class="w-full h-full object-contain"
                         >
@@ -71,7 +71,7 @@
                 </div>
 
                 <img
-                    src="../../assets/images/phone.svg"
+                    src="@/assets/images/phone.svg"
                     alt="Телефон"
                     class="w-full h-full object-contain relative z-20 max-md:mx-[-20px]"
                 >
@@ -124,10 +124,10 @@
 
 <script setup>
 import ReminderCard from './ReminderCard.vue';
-import oilImage from '../../assets/images/oil.svg';
-import carImage from '../../assets/images/car.svg';
-import insuranceImage from '../../assets/images/insurance.svg';
-import moreImage from '../../assets/images/more.svg';
+import oilImage from '@/assets/images/oil.svg';
+import carImage from '@/assets/images/car.svg';
+import insuranceImage from '@/assets/images/insurance.svg';
+import moreImage from '@/assets/images/more.svg';
 </script>
 
 <style lang="scss" scoped>
