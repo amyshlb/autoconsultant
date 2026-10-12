@@ -25,7 +25,6 @@
                         <a
                             v-if="link.isButton"
                             :href="link.href"
-                            class="..."
                         >
                             {{ link.label }}
                         </a>
@@ -33,7 +32,6 @@
                         <a
                             v-else
                             :href="link.href"
-                            class="..."
                         >
                             {{ link.label }}
                         </a>
