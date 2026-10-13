@@ -2,35 +2,35 @@
     <main class="min-h-screen bg-brand-bg font-sans antialiased text-brand-dark">
         <Header />
 
-            <div class="main-section w-full max-w-[1440px] mx-auto px-[40px] mt-[92px] max-md:px-0">
+            <section class="main-section w-full max-w-[1440px] mx-auto px-[40px] mt-[92px] max-md:px-0">
                 <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                     <HeroSection />
                 </div>
-            </div>
+            </section>
 
-            <div class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
+            <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
                 <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                     <StepSection class="pb-[120px]"/>
                 </div>
-            </div>
+            </section>
 
-            <div class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
+            <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
                 <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                     <BuySection/> 
                 </div>
-            </div>
+            </section>
 
-            <div class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
+            <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] max-md:px-0">
                 <div class="bg-brand-white rounded-[60px] shadow-sm relative overflow-hidden w-full">
                     <FaqSection class="pb-[60px]" />
                 </div>
-            </div>
+            </section>
 
-            <div class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] relative z-10 max-md:px-0">
+            <section class="section w-full max-w-[1440px] mx-auto px-[40px] mt-[16px] relative z-10 max-md:px-0">
                 <div class="bg-brand-white rounded-[60px] shadow-sm relative w-full">
                     <PriceSection/>
                 </div>
-            </div>
+            </section>
 
             <Footer class="mt-[16px] relative z-0" />
         </main>
