@@ -26,23 +26,23 @@
     >
         <div class="w-full flex flex-col gap-[16px]">
 
-            <a
+            <router-link
                 v-for="link in menuLinks"
-                :key="link.href"
-                :href="link.href"
-                @click.prevent="goToSection(link.href)"
+                :key="link.path"
+                :to="link.path"
+                @click="closeMenu"
                 class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
             >
                 {{ link.text }}
-            </a>
+            </router-link>
 
-            <a
-                href="#buy"
-                @click.prevent="goToSection('#buy')"
+            <router-link
+                to="#buy"
+                @click="closeMenu"
                 class="w-full h-[60px] mt-[31px] bg-brand-green text-brand-dark text-[17px] font-semibold rounded-[20px] flex items-center justify-center"
             >
                 Хочу купить
-            </a>
+            </router-link>
 
         </div>
     </nav>
@@ -53,22 +53,17 @@
 import { ref } from 'vue';
 
 const isMenuOpen = ref(false);
-const goToSection = (id) => {
-  isMenuOpen.value = false;
-
-  document.querySelector(id)?.scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-  });
+const closeMenu = () => {
+    isMenuOpen.value = false;
 };
 
 const menuLinks = [
     {
-        href: '#how-it-works',
+        path: '/how-it-works',
         text: 'Как работает бот',
     },
     {
-        href: '#faq',
+        path: '/faq',
         text: 'Вопросы и ответы',
     },
 ]
