@@ -11,14 +11,13 @@
                 <h1
                     class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:mx-[-20px] max-md:w-full max-md:max-w-[335px] max-md:text-[38px] max-md:leading-[36px]"
                 >
-                    Автоконсультант <br>
-                    в вашем смартфоне
+                    {{ t('hero.title') }}
                 </h1>
 
                 <div
                     class="hidden max-md:flex w-[112px] h-[37px] items-center justify-center bg-brand-blue text-brand-white font-bold text-[13px] rounded-[24px] whitespace-nowrap rotate-[5.17deg] translate-x-[180px] translate-y-[-100px] mb-[-50px]"
                 >
-                    телеграм-бот
+                    {{ t('hero.telegram-bot') }}
                 </div>
 
                 <div
@@ -27,27 +26,18 @@
                     <p
                         class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:w-full max-md:max-w-[335px] max-md:h-[96px] max-md:text-[19px] max-md:leading-[24px]"
                     >
-                        <span class="max-md:hidden">
-                            Бот помогает следить за техническим <br>
-                            состоянием вашего автомобиля <br>
-                            и сообщит о необходимости <br>
-                            сервисного обслуживания
+                        <span class="whitespace-pre-line">
+                            {{ t('hero.description') }}
                         </span>
 
-                        <span class="hidden max-md:block">
-                            Бот помогает следить за техническим <br>
-                            состоянием вашего автомобиля <br>
-                            и сообщит о необходимости
-                            сервисного обслуживания
-                        </span>
                     </p>
 
                     <div
                         class="rotated-phrase-container absolute left-[350px] w-[365px] bottom-[-46px] max-md:left-[100px] max-md:bottom-[20px] max-md:w-full max-md:max-w-[175px] max-md:h-[50px] translate-x-[60px] translate-y-[-5px] max-md:translate-x-[50px] max-md:translate-y-0"
                     >
                         <img
-                            src="@/assets/images/phrase.svg"
-                            alt="и не только об этом"
+                            :src="phraseImage"
+                            :alt="t('hero.phrase-image-alt')"
                             class="w-full h-full object-contain"
                         >
                     </div>
@@ -57,7 +47,7 @@
                     href="#buy"
                     class="w-[378px] h-[132px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[48px] shadow-sm transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[18px] max-md:w-full max-md:max-w-[335px] max-md:h-[60px] max-md:mx-0 max-md:rounded-[20px] max-md:text-[17px] max-md:mt-[-44px]"
                 >
-                    Хочу купить
+                    {{ t('hero.buy') }}
                 </a>
             </div>
 
@@ -67,12 +57,12 @@
                 <div
                     class="telegram-badge absolute top-[10px] left-[-185px] bg-brand-blue text-brand-white font-bold text-[28px] tracking-[-1px] px-[24px] py-[20px] rounded-[44px] shadow-md z-30 whitespace-nowrap max-md:hidden"
                 >
-                    телеграм-бот
+                    {{ t('hero.telegram-bot') }}
                 </div>
 
                 <img
                     src="@/assets/images/phone.svg"
-                    alt="Телефон"
+                    :alt="t('hero.phone-image-alt')"
                     class="w-full h-full object-contain relative z-20 max-md:mx-[-20px]"
                 >
             </div>
@@ -84,35 +74,35 @@
             <h2
                 class="text-[88px] leading-[88px] font-bold text-brand-dark text-center tracking-[-1px] mb-[40px] w-full max-md:w-[333px] max-md:text-[37px] max-md:leading-[36px] max-md:font-extrabold max-md:ml-[18px] max-md:mb-[32px]"
             >
-                Бот напомнит когда
+                {{ t('hero.reminders-title') }}
             </h2>
 
             <div
                 class="grid grid-cols-2 gap-x-[36px] gap-y-[36px] justify-center items-start w-full max-w-[1280px] translate-x-[10px] max-md:grid-cols-1 max-md:gap-y-[24px] max-md:w-[334px] max-md:translate-x-0"
             >
                 <ReminderCard
-                    title="необходимо заменить масло"
+                    :title="t('hero.reminders.oil')"
                     :image="oilImage"
                     imageClass="w-[250px] max-h-[115px] max-md:w-[156px] max-md:h-[70px] translate-x-[10px] max-md:translate-x-[-5px] translate-y-[-10px]"
                     textClass="translate-x-[5px] translate-y-[5px]"
                 />
 
                 <ReminderCard
-                    title="пройти техосмотр"
+                    :title="t('hero.reminders.inspection')"
                     :image="carImage"
                     imageClass="w-[286px] max-h-[174px] max-md:w-[158px] max-md:h-[96px] translate-x-[-5px] translate-y-[0px]"
                     textClass="translate-x-[-10px] translate-y-[5px]"
                 />
 
                 <ReminderCard
-                    title="продлить страховку"
+                    :title="t('hero.reminders.insurance')"
                     :image="insuranceImage"
                     imageClass="w-[212px] max-h-[182px] max-md:w-[112px] max-md:h-[96px] translate-x-[10px] translate-y-[5px]"
                     textClass="translate-x-[8px] translate-y-[10px]"
                 />
 
                 <ReminderCard
-                    title="и о многом другом"
+                    :title="t('hero.reminders.more')"
                     :image="moreImage"
                     imageClass="w-[550px] max-h-[192px] max-md:w-[378px] max-md:h-[106px] translate-x-[30px] translate-y-[0px]"
                     textClass="translate-x-[-10px] translate-y-[10px]"
@@ -123,11 +113,32 @@
 </template>
 
 <script setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
 import ReminderCard from './ReminderCard.vue';
 import oilImage from '@/assets/images/oil.svg';
 import carImage from '@/assets/images/car.svg';
 import insuranceImage from '@/assets/images/insurance.svg';
-import moreImage from '@/assets/images/more.svg';
+import phraseRu from '@/assets/images/phrase-ru.svg';
+import phraseEn from '@/assets/images/phrase-en.svg';
+import phraseKk from '@/assets/images/phrase-kk.svg';
+import moreKk from '@/assets/images/more-kk.svg';
+import moreEn from '@/assets/images/more-en.svg';
+import moreRu from '@/assets/images/more-ru.svg';
+
+const { t, locale } = useI18n();
+const phraseImage = computed(() => {
+    if (locale.value === 'kk') return phraseKk;
+    if (locale.value === 'en') return phraseEn;
+
+    return phraseRu;
+});
+const moreImage = computed(() => {
+    if (locale.value === 'kk') return moreKk;
+    if (locale.value === 'en') return moreEn;
+
+    return moreRu;
+});
 </script>
 
 <style lang="scss" scoped>

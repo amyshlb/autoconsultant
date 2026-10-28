@@ -5,10 +5,9 @@
     >
 
         <h1
-            class="text-[128px] font-extrabold leading-[120px] tracking-[-1px] mb-[60px] translate-x-[-10px] translate-y-[5px] max-md:w-[335px] max-md:px-[20px] max-md:text-[36px] max-md:leading-[36px] max-md:mb-[32px] max-md:translate-x-0"
+            class="text-[128px] font-extrabold leading-[120px] tracking-[-1px] mb-[60px] translate-x-[30px] translate-y-[5px] max-md:w-[335px] max-md:px-[20px] max-md:text-[36px] max-md:leading-[36px] max-md:mb-[32px] max-md:translate-x-0"
         >
-            Как работает <br>
-            АвтоКонсультант?
+            {{ t('step.title') }}
         </h1>
 
         <div
@@ -30,9 +29,9 @@
                     <p
                         class="text-[40px] leading-[48px] tracking-[-1px] font-medium text-brand-gray translate-x-[5px] translate-y-[5px] max-md:w-[283px] max-md:text-[20px] max-md:leading-[24px]"
                     >
-                        Добавляете ваш <br>
-                        автомобиль в “Мой гараж” <br>
-                        заполнив сервисные данные
+                        <span class="whitespace-pre-line">
+                            {{ t('step.step-1') }}
+                        </span>
                     </p>
                 </div>
 
@@ -40,8 +39,8 @@
                     class="h-full flex items-center justify-end mr-[-88px] mt-[15px] self-center max-md:absolute max-md:top-[172px] max-md:left-[24px] max-md:w-[362px] max-md:h-[212px] max-md:mr-0"
                 >
                     <img
-                        src="@/assets/images/service-data.svg"
-                        alt="Шаг 1"
+                        :src="serviceDataImage"
+                        :alt="t('step.step-1-alt')"
                         class="max-h-[350px] object-contain max-md:w-[362px] max-md:h-[212px]"
                     >
                 </div>
@@ -62,8 +61,9 @@
                     <p
                         class="text-[40px] leading-[48px] tracking-[-1px] font-medium text-brand-gray translate-x-[5px] translate-y-[5px] max-md:w-[283px] max-md:text-[20px] max-md:leading-[24px]"
                     >
-                        Ездите на машине <br>
-                        как обычно это делаете
+                        <span class="whitespace-pre-line">
+                            {{ t('step.step-2') }}
+                        </span>
                     </p>
                 </div>
 
@@ -72,7 +72,7 @@
                 >
                     <img
                         src="@/assets/images/drive.svg"
-                        alt="Шаг 2"
+                        :alt="t('step.step-2-alt')"
                         class="max-h-[300px] object-contain max-md:w-[287px] max-md:h-[157px]"
                     >
                 </div>
@@ -93,9 +93,9 @@
                     <p
                         class="text-[40px] leading-[48px] tracking-[-1px] font-medium text-brand-gray translate-x-[5px] translate-y-[5px] max-md:w-[283px] max-md:text-[20px] max-md:leading-[24px]"
                     >
-                        Бот подскажет когда надо <br>
-                        будет заменить масло, <br>
-                        пройти техосмотр и т.д.
+                        <span class="whitespace-pre-line">
+                            {{ t('step.step-3') }}
+                        </span>
                     </p>
                 </div>
 
@@ -103,8 +103,8 @@
                     class="h-full flex items-center justify-end mr-[88px] mt-[30px] self-center max-md:absolute max-md:top-[220px] max-md:left-[65px] max-md:w-[202px] max-md:h-[231px] max-md:mr-0 max-md:mt-0"
                 >
                     <img
-                        src="@/assets/images/hand.svg"
-                        alt="Шаг 3"
+                        :src="handImage"
+                        :alt="t('step.step-3-alt')"
                         class="max-h-[360px] object-contain max-md:w-[202px] max-md:h-[231px]"
                     >
                 </div>
@@ -118,7 +118,7 @@
                 >
                     <img
                         src="@/assets/images/pause.svg"
-                        alt="Пауза"
+                        :alt="t('step.pause-alt')"
                         class="w-full h-full object-contain"
                     >
                 </div>
@@ -128,3 +128,28 @@
 
     </div>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n';
+import { computed } from 'vue';
+import serviceDataRu from '@/assets/images/service-data-ru.svg';
+import serviceDataEn from '@/assets/images/service-data-en.svg';
+import serviceDataKk from '@/assets/images/service-data-kk.svg';
+import handRu from '@/assets/images/hand-ru.svg';
+import handEn from '@/assets/images/hand-en.svg';
+import handKk from '@/assets/images/hand-kk.svg';
+
+const { t, locale } = useI18n();
+const serviceDataImage = computed(() => {
+    if (locale.value === 'kk') return serviceDataKk;
+    if (locale.value === 'en') return serviceDataEn;
+
+    return serviceDataRu;
+});
+const handImage = computed(() => {
+    if (locale.value === 'kk') return handKk;
+    if (locale.value === 'en') return handEn;
+
+    return handRu;
+});
+</script>
