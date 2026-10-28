@@ -1,0 +1,76 @@
+{
+  "header": {
+    "how-it-works": "How the bot works",
+    "faq": "Questions and Answers",
+    "buy": "I want to buy"
+  },
+  "hero": {
+    "title": "Autoconsultant\nin your \nsmartphone",
+    "telegram-bot": "telegram-bot",
+    "description": "The bot will help you monitor the technical condition of your car and notify you when service is required",
+    "buy": "I want to buy",
+    "phrase-image-alt": "and more besides",
+    "phone-image-alt": "Phone",
+    "reminders-title": "The bot will remind you when",
+    "reminders": {
+      "oil": "you need to change the oil",
+      "inspection": "to pass the inspection",
+      "insurance": "to renew insurance",
+      "more": "and much more"
+    }
+  },
+  "step": {
+    "title": "How does AutoConsultant work?",
+    "step-1": "Add your car to “My Garage” by filling in the service data",
+    "step-2": "Drive your car\nas you normally do",
+    "step-3": "The bot will tell you when it’s time for an oil change, technical inspection, etc.",
+    "step-1-alt": "Step 1",
+    "step-2-alt": "Step 2",
+    "step-3-alt": "Step 3",
+    "pause-alt": "Pause"
+  },
+  "buy": {
+    "title": "Your personal\nAutoConsultant in your pocket",
+    "description": "Maximum comfort and safety\nin car operation",
+    "description-mobile": "will remind you when it’s time to change the oil or renew your car insurance",
+    "buy": "I want to buy"
+  },
+  "faq": {
+    "title": "Questions and Answers",
+    "questions": [
+        {
+          "question": "Can I get a refund if I change my mind?",
+          "answer": "Yes, you can get a refund within 14 days of payment if you have not used the bot's services."
+        },
+        {
+          "question": "What additional features are planned?",
+          "answer": "In the future, we plan to integrate service centers and auto shops, track fuel expenses, and allow users to check and pay fines directly through the bot."
+        },
+        {
+            "question": "How does the bot work?",
+            "answer": "You add your car to the My Garage section. The bot creates a maintenance schedule and sends reminders when it's time to change the oil or pass a vehicle inspection."
+        }
+    ]
+  },
+  "price": {
+    "per-year": "per year",
+    "promotion": "Promotion until April 10",
+    "buy": "Buy",
+    "phone-alt": "Phone"
+  },
+  "footer": {
+    "agreement": "User Agreement",
+    "support": "Technical Support",
+    "developed": "Developed by the team"
+  },
+  "posts": {
+    "title": "Posts",
+    "home": "Home",
+    "description": "Useful materials for drivers — all about car care and safe trips.",
+    "coming-soon": "Useful articles will appear here soon."
+  },
+  "not-found": {
+    "message": "Page not found",
+    "home": "Home"
+  }
+}
