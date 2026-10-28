@@ -41,7 +41,7 @@
                 @click="closeMenu"
                 class="w-full h-[60px] mt-[31px] bg-brand-green text-brand-dark text-[17px] font-semibold rounded-[20px] flex items-center justify-center"
             >
-                Хочу купить
+                {{ t('header.buy') }}
             </router-link>
 
         </div>
@@ -50,21 +50,25 @@
 
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 const isMenuOpen = ref(false);
+
 const closeMenu = () => {
     isMenuOpen.value = false;
 };
 
-const menuLinks = [
+const { t, locale } = useI18n();
+
+const menuLinks = computed(() => [
     {
-        path: '/how-it-works',
-        text: 'Как работает бот',
+        path: `/${locale.value}/how-it-works`,
+        text: t('header.how-it-works'),
     },
     {
-        path: '/faq',
-        text: 'Вопросы и ответы',
+        path: `/${locale.value}/faq`,
+        text: t('header.faq'),
     },
-]
+]);
 </script>

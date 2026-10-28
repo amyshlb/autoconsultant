@@ -4,10 +4,16 @@ import HomeView from '@/views/HomeView.vue'
 import FaqView from '@/views/FaqView.vue'
 import PriceView from '@/views/PriceView.vue'
 import StepView from '@/views/StepView.vue'
+import PostsView from '@/views/PostsView.vue'
+import NotFoundView from '@/views/NotFoundView.vue'
 
 const routes = [
   {
     path: '/',
+    redirect: '/ru'
+  },
+  {
+    path: '/:locale',
     component: MainLayout,
     children: [
       {
@@ -31,6 +37,14 @@ const routes = [
         component: StepView
       }
     ]
+  },
+  {
+    path: '/:locale/posts',
+    component: PostsView
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFoundView
   }
 ]
 
@@ -49,4 +63,18 @@ const router = createRouter({
   }
 })
 
+import i18n from '@/i18n'
+
+router.beforeEach((to) => {
+    const locale = to.params.locale;
+
+    if (locale && !['ru', 'en', 'kk'].includes(locale)) {
+        return '/ru';
+    }
+
+    if (locale) {
+        i18n.global.locale.value = locale;
+        localStorage.setItem('locale', locale);
+    }
+});
 export default router

@@ -6,7 +6,7 @@
         <h1
             class="text-[128px] leading-[128px] font-extrabold text-center tracking-[-1px] mb-[60px] w-full text-brand-dark translate-x-[-5px] translate-y-[10px] max-md:w-[331px] max-md:h-[72px] max-md:text-[38px] max-md:leading-[36px] max-md:mb-[40px]"
         >
-            Вопросы и ответы
+            {{ t('faq.title') }}
         </h1>
 
         <div
@@ -71,25 +71,25 @@
 </template>
 
 <script setup>
-import { reactive } from 'vue'
+import { reactive, watch } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const faqList = reactive([
-    {
-        question: 'Можно ли вернуть деньги если передумал?',
-        answer: 'Да, вы можете вернуть средства в течение 14 дней с момента оплаты, если вы еще не пользовались услугами бота.',
+const { t, tm, locale } = useI18n()
+
+const faqList = reactive(
+    tm('faq.questions').map((item) => ({
+        ...item,
         isOpen: false
-    },
-    {
-        question: 'Какие дополнительные функции планируете добавить?',
-        answer: 'В будущем появится интеграция с СТО и автомагазинами, учет расходов на топливо, а также проверка и оплата штрафов прямо через интерфейс бота.',
-        isOpen: false
-    },
-    {
-        question: 'Как работает бот?',
-        answer: 'Вы добавляете машину в раздел «Мой гараж», бот рассчитывает график обслуживания и присылает напоминания, когда пора менять масло или проходить техосмотр.',
-        isOpen: false
-    }
-])
+    }))
+)
+
+watch(locale, () => {
+    faqList.forEach((item, index) => {
+        const question = tm('faq.questions')[index]
+        item.question = question.question
+        item.answer = question.answer
+    })
+})
 
 const toggleAccordion = (index) => {
     if (faqList[index].isOpen) {

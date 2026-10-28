@@ -22,27 +22,36 @@
         <h2
             class="relative z-10 text-[80px] leading-[80px] font-extrabold text-brand-white text-center tracking-[-1px] w-full max-w-[1200px] translate-x-[4px] translate-y-[-8px] max-md:w-[335px] max-md:h-[108px] max-md:text-[35px] max-md:leading-[36px] max-md:max-w-none"
         >
-            Ваш персональный <br>
-            АвтоКонсультант в кармане
+            <span class="whitespace-pre-line">
+                {{ t('buy.title') }}
+            </span>
         </h2>
 
         <p
             class="relative z-10 text-[40px] leading-[48px] font-medium text-brand-white text-center tracking-[-1px] mt-[12px] translate-x-[35px] w-full max-md:hidden"
-        >
-            Максимально комфортная и безопасная <br>
-            эксплуатация автомобиля
+        >   
+            <span class="whitespace-pre-line">
+                {{ t('buy.description') }}
+            </span>
         </p>
 
         <p
             class="hidden max-md:block relative z-10 w-[335px] h-[72px] text-[20px] leading-[24px] font-medium text-brand-white text-center tracking-[-1px]"
         >
-            напомнит когда пора менять масло или обновить срок действия автостраховки
+            <span class="whitespace-pre-line">
+                {{ t('buy.description-mobile') }}
+            </span>
         </p>
 
         <button
             class="relative z-10 w-[254px] h-[92px] bg-brand-green hover:opacity-90 text-brand-dark font-semibold text-[28px] rounded-[28px] shadow-sm translate-x-[4px] translate-y-[18px] transition-opacity duration-200 cursor-pointer flex items-center justify-center mt-[40px] max-md:w-[189px] max-md:h-[60px] max-md:text-[17px] max-md:rounded-[20px] max-md:mt-[40px]"
         >
-            Купить
+            {{ t('buy.buy') }}
         </button>
     </div>
 </template>
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+</script>
