@@ -6,31 +6,29 @@
             class="flex items-center gap-[168px] max-md:absolute max-md:left-[20px] max-md:top-[40px] max-md:flex-col max-md:items-start max-md:gap-[32px]"
         >
             <a
-                href="#"
                 class="text-[24px] font-normal leading-normal tracking-[-1px] hover:opacity-80 transition-opacity cursor-pointer decoration-none translate-x-[-35px] translate-y-[5px] max-md:w-[250px] max-md:h-[20px] max-md:text-[16px] max-md:leading-[20px] max-md:translate-x-0"
             >
-                Пользовательское соглашение
+                {{ t('footer.agreement') }}
             </a>
 
             <a
-                href="#"
                 class="text-[24px] font-normal leading-normal tracking-[-1px] hover:opacity-80 transition-opacity cursor-pointer decoration-none translate-x-[-16px] translate-y-[5px] max-md:w-[179px] max-md:h-[20px] max-md:text-[16px] max-md:leading-[20px] max-md:translate-x-0"
             >
-                Техническая поддержка
+                {{ t('footer.support') }}
             </a>
         </div>
 
         <div
-            class="flex flex-col items-start max-md:absolute max-md:left-[20px] max-md:top-[140px]"
+            class="flex flex-col items-end w-[400px] translate-x-[28px] translate-y-[5px] max-md:absolute max-md:left-[20px] max-md:top-[140px] max-md:w-auto max-md:translate-x-0 max-md:translate-y-0"
         >
             <span
-                class="text-[24px] text-neutral-400 font-normal leading-normal translate-x-[28px] translate-y-[5px] max-md:w-[220px] max-md:h-[20px] max-md:text-[16px] max-md:leading-[20px] max-md:translate-x-0 max-md:translate-y-[-5px]"
+                class="text-[24px] text-neutral-400 font-normal leading-normal max-md:w-[220px] max-md:h-[20px] max-md:text-[16px] max-md:leading-[20px] max-md:translate-x-0 max-md:translate-y-[-5px]"
             >
-                Разработано командой
+                {{ t('footer.developed') }}
             </span>
 
             <div
-                class="flex items-center w-[162px] h-[38px] translate-x-[143px] translate-y-[10px] max-md:w-[137px] max-md:h-[32px] max-md:translate-x-0 max-md:translate-y-[8px]"
+                class="flex items-center w-[162px] h-[38px] mt-[10px] max-md:w-[137px] max-md:h-[32px] max-md:mt-[8px]"
             >
                 <img
                     src="../assets/images/credits.svg"
@@ -40,3 +38,8 @@
         </div>
     </footer>
 </template>
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>

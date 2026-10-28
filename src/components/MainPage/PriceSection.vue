@@ -15,7 +15,7 @@
                 <div
                     class="text-[56px] font-extrabold leading-[65px] tracking-[-1px] text-brand-black mt-2 translate-x-[-2px] translate-y-[-15px] max-md:text-[28px] max-md:leading-[32px] max-md:tracking-[-0.48px] max-md:mt-0 max-md:translate-x-0"
                 >
-                    в год
+                    {{ t('price.per-year') }}
                 </div>
             </div>
 
@@ -32,13 +32,13 @@
                     <div
                         class="text-[44px] font-medium leading-[56px] tracking-[-1px] line-through text-brand-black translate-x-0 translate-y-0 max-md:text-[20px] max-md:leading-[28px] max-md:tracking-[-0.48px]"
                     >
-                        12 000₸/в год
+                        12 000₸/{{ t('price.per-year') }}
                     </div>
 
                     <div
                         class="text-[28px] font-medium leading-[32px] tracking-[-1px] text-brand-new-gray translate-x-[0px] translate-y-[0px] max-md:text-[12px] max-md:leading-[16px] max-md:tracking-[-0.48px]"
                     >
-                        Акция до 10 апреля
+                        {{ t('price.promotion') }}
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                 type="button"
                 class="w-full max-w-[596px] h-[132px] bg-brand-green hover:bg-brand-dark-green transition-colors duration-200 rounded-[48px] p-6 flex items-center justify-center text-brand-dark text-[28px] font-semibold cursor-pointer box-border translate-x-[-12px] translate-y-[-12px] max-md:w-[289px] max-md:h-[60px] max-md:max-w-none max-md:rounded-[20px] max-md:p-[20px] max-md:text-[17px]"
             >
-                Купить
+                {{ t('price.buy') }}
             </button>
         </div>
 
@@ -56,9 +56,14 @@
         >
             <img
                 src="@/assets/images/phone.svg"
-                alt="Телефон"
+                :alt="t('price.phone-alt')"
                 class="w-full h-full object-contain"
             />
         </div>
     </div>
 </template>
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+</script>
