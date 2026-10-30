@@ -31,13 +31,13 @@
                 :key="link.path"
                 :to="link.path"
                 @click="closeMenu"
-                class="w-full h-[36px] flex items-center text-[34px] leading-[36px] font-extrabold text-brand-dark"
+                class="w-full min-h-[36px] flex items-center text-[30px] leading-[1.15] font-extrabold text-brand-dark"
             >
                 {{ link.text }}
             </router-link>
 
             <router-link
-                to="#buy"
+                :to="`/${locale}/buy`"
                 @click="closeMenu"
                 class="w-full h-[60px] mt-[31px] bg-brand-green text-brand-dark text-[17px] font-semibold rounded-[20px] flex items-center justify-center"
             >

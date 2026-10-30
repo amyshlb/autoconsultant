@@ -8,6 +8,7 @@
     "title": "Autoconsultant\nin your \nsmartphone",
     "telegram-bot": "telegram-bot",
     "description": "The bot will help you monitor the technical condition of your car and notify you when service is required",
+    "description-mobile": "The bot will help you monitor the technical condition of your car and notify you when service is required",
     "buy": "I want to buy",
     "phrase-image-alt": "and more besides",
     "phone-image-alt": "Phone",
