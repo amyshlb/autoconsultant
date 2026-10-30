@@ -28,7 +28,7 @@
             </span>
 
             <div
-                class="flex items-center w-[162px] h-[38px] mt-[10px] max-md:w-[137px] max-md:h-[32px] max-md:mt-[8px]"
+                class="flex items-center w-[162px] h-[38px] mt-[10px] max-md:w-[137px] max-md:h-[32px] max-md:mt-[8px] max-md:mr-[84px]"
             >
                 <img
                     src="../assets/images/credits.svg"
