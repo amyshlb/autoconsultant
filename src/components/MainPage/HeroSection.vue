@@ -28,10 +28,12 @@
                     <p
                         class="text-[40px] leading-[48px] text-brand-gray font-medium tracking-[-1px] w-full max-w-[769px] max-md:w-full max-md:max-w-[335px] max-md:h-[96px] max-md:text-[19px] max-md:leading-[24px]"
                     >
-                        <span class="whitespace-pre-line">
+                        <span class="whitespace-pre-line max-md:hidden">
                             {{ t('hero.description') }}
                         </span>
-
+                        <span class="whitespace-pre-line hidden max-md:block">
+                            {{ t('hero.description-mobile') }}
+                        </span>
                     </p>
 
                     <div
