@@ -11,7 +11,9 @@
                 <h1
                     class="font-extrabold text-[128px] leading-[120px] tracking-[-1px] mb-[36px] max-md:mx-[-20px] max-md:w-full max-md:max-w-[335px] max-md:text-[38px] max-md:leading-[36px]"
                 >
-                    {{ t('hero.title') }}
+                    <span class="whitespace-pre-line">
+                        {{ t('hero.title') }} 
+                    </span> 
                 </h1>
 
                 <div
