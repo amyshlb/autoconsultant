@@ -3,7 +3,7 @@
         <button
             type="button"
             @click="isOpen = !isOpen"
-            class="flex w-[56px] shrink-0 items-center justify-between text-brand-dark"
+            class="flex w-[56px] shrink-0 items-center justify-between text-brand-dark max-md:w-[44px] max-md:h-[44px]"
         >
             {{ locale.toUpperCase() }}
             <span
