@@ -4,19 +4,36 @@
     >
         <div
             class="w-full flex items-center justify-between relative z-50"
+            :class="backTo ? 'max-md:flex-col max-md:items-stretch max-md:gap-[20px]' : ''"
         >
-            <router-link 
-                to="/" 
-                class="relative z-60 flex items-center text-[36px] max-md:text-[24px] mb-[6px] ml-[5px] max-md:ml-0 font-bold leading-[90%] tracking-[-1px] select-none"
+            <div class="flex items-center"
+                :class="backTo 
+                    ? 'gap-[24px] max-md:w-full max-md:justify-between' 
+                    : 'gap-[24px]'"
             >
-                <span class="text-brand-green">auto</span>
-                <span class="text-brand-dark">consultant</span>
+                <router-link 
+                    to="/" 
+                    class="relative z-60 flex items-center text-[36px] max-md:text-[24px] mb-[6px] ml-[5px] max-md:ml-0 font-bold leading-[90%] tracking-[-1px] select-none"
+                >
+                    <span class="text-brand-green">auto</span>
+                    <span class="text-brand-dark">consultant</span>
+                </router-link>
+
+            
+                <LanguageSwitcher />
+            </div>
+
+            <router-link
+                v-if="backTo"
+                :to="backTo"
+                class="inline-flex items-center gap-[6px] shrink-0 whitespace-nowrap text-[24px] font-semibold text-brand-dark hover:opacity-70 transition-opacity max-md:text-[15px]"
+            >
+                ← {{ backText }}
             </router-link>
 
-        
-            <LanguageSwitcher />
 
             <nav
+                v-if="!backTo"
                 class="hidden md:flex items-center"
                 aria-label="Main Navigation"
             >
@@ -38,7 +55,7 @@
                 </ul>
             </nav>
 
-            <BurgerMenu />
+            <BurgerMenu v-if="!backTo"/>
         </div>
     </header>
 </template>
@@ -51,8 +68,20 @@ import { computed } from 'vue';
 const { t, locale } = useI18n();
 
 const navLinks = computed (() => [
+    { path: `/${locale.value}/posts`, label: t('header.posts') },
     { path: `/${locale.value}/how-it-works`, label: t('header.how-it-works') },
     { path: `/${locale.value}/faq`, label: t('header.faq') },
     { path: `/${locale.value}/buy`, label: t('header.buy'), isButton: true },
 ]);
+
+const props = defineProps({
+    backTo: {
+        type: String,
+        default: ''
+    },
+    backText: {
+        type: String,
+        default: ''
+    }
+})
 </script>

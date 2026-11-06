@@ -1,5 +1,6 @@
 {
   "header": {
+    "posts": "Posts",
     "how-it-works": "How the bot works",
     "faq": "Questions and Answers",
     "buy": "I want to buy"
@@ -64,14 +65,19 @@
     "support": "Technical Support",
     "developed": "Developed by the team"
   },
-  "posts": {
-    "title": "Posts",
-    "home": "Home",
-    "description": "Useful materials for drivers — all about car care and safe trips.",
-    "coming-soon": "Useful articles will appear here soon."
-  },
   "not-found": {
     "message": "Page not found",
     "home": "Home"
+  },
+  "posts": {
+    "title": "Posts",
+    "description": "Read our posts.",
+    "back": "Back",
+    "backToPosts": "Back to posts",
+    "details": "Read more",
+    "comments": "Comments",
+    "loadError": "Failed to load posts",
+    "postError": "Failed to load post",
+    "commentsError": "Failed to load comments"
   }
 }

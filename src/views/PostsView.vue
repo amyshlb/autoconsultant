@@ -2,24 +2,17 @@
     <main
         class="min-h-screen bg-brand-bg text-brand-dark px-[40px] pt-[28px] pb-[40px] max-md:px-[20px] max-md:pt-[20px]"
     >
-        <header
-            class="flex items-center justify-between max-w-[1360px] mx-auto px-[24px] max-md:px-[24px]"
-        >
-            <router-link
-                :to="`/${locale}`"
-                class="text-[36px] font-bold tracking-[-1px] hover:opacity-70 transition-opacity max-md:text-[20px]"
-            >
-                <span class="text-brand-green">auto</span>
-                <span class="text-brand-dark">consultant</span>
-            </router-link>
-        </header>
+        <Header
+            :back-to="`/${locale}`"
+            :back-text="t('posts.back')"
+        />
 
         <section
             class="max-w-[1360px] mx-auto mt-[36px] bg-brand-white rounded-[52px] px-[60px] py-[72px] min-h-[440px] max-md:mt-[36px] max-md:rounded-[32px] max-md:px-[24px] max-md:py-[40px] max-md:min-h-[360px]"
         >
             
             <h1
-                class="text-[72px] leading-[1.05] font-extrabold tracking-[-2px] max-w-[800px] max-md:text-[40px] max-md:tracking-[-1px]"
+                class="mt-[20px] text-[72px] leading-[1.05] font-extrabold tracking-[-1px] max-w-[800px] max-md:text-[40px] max-md:tracking-[-1px]"
             >
                 {{ t('posts.title') }}
             </h1>
@@ -30,19 +23,39 @@
                 {{ t('posts.description') }}
             </p>
 
-            <div
-                class="mt-[56px] border-t border-[var(--color-brand-light-gray)] pt-[24px] flex items-center justify-between gap-[20px] max-md:mt-[40px]"
-            >
-                <p class="text-[16px] text-brand-gray max-md:text-[14px]">
-                    {{ t('posts.coming-soon') }}
-                </p>
+            <Loader v-if="isLoading" />
 
-                <router-link
-                    :to="`/${locale}`"
-                    class="shrink-0 flex items-center justify-center rounded-[20px] bg-brand-green px-[28px] py-[16px] text-[16px] font-semibold hover:opacity-80 transition-opacity max-md:px-[18px] max-md:py-[12px] max-md:text-[14px]"
+            <p v-else-if="error">
+                {{ error }}
+            </p>
+
+
+            <div
+                v-else
+                class="mt-[56px] flex flex-col gap-[24px]"
+            >
+                <article
+                    v-for="post in posts"
+                    :key="post.id"
+                    class="rounded-[32px] border border-brand-light-gray p-[36px] transition-shadow hover:shadow-md max-md:rounded-[24px] max-md:p-[24px]"
                 >
-                    {{ t('posts.home') }}
-                </router-link>
+                    <h2 class="text-[36px] font-bold leading-[1.5] tracking-[-1px] max-md:text-[22px]">
+                        {{ post.title }}
+                    </h2>
+
+                    <p class="mt-[20px] text-[20px] leading-[1.5] text-brand-gray max-md:text-[15px]">
+                        {{ post.body }}
+                    </p>
+
+                    <div class="mt-[28px] flex justify-end">
+                        <router-link
+                            :to="`/${locale}/posts/${post.id}`"
+                            class="bg-brand-blue text-brand-white rounded-full px-[32px] py-[16px] text-[16px] font-semibold transition-opacity hover:opacity-70 max-md:px-[24px] max-md:py-[13px] max-md:text-[14px]"
+                        >
+                            {{ t('posts.details') }}
+                        </router-link>
+                    </div>
+                </article>
             </div>
         </section>
     </main>
@@ -50,6 +63,32 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { ref, onMounted } from 'vue'
+import Loader from '@/components/Loader.vue'
+import Header from '@/components/Header.vue'
 
 const { t, locale } = useI18n()
+const posts = ref([])
+const isLoading = ref(true)
+const error = ref('')
+
+const fetchPosts = async () => {
+    try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+
+        if (!response.ok) {
+            throw new Error('Failed to load posts')
+        }
+
+        posts.value = await response.json()
+    } catch (err) {
+        error.value = t('posts.loadError')
+    } finally {
+        isLoading.value = false
+    }
+}
+
+onMounted(() => {
+    fetchPosts()
+})
 </script>

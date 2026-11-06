@@ -63,6 +63,10 @@ const { t, locale } = useI18n();
 
 const menuLinks = computed(() => [
     {
+        path: `/${locale.value}/posts`,
+        text: t('header.posts'),
+    },
+    {
         path: `/${locale.value}/how-it-works`,
         text: t('header.how-it-works'),
     },
