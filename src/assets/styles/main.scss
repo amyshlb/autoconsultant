@@ -85,3 +85,21 @@ body {
 .font-extrabold {
     font-weight: 800 !important;
 }
+
+.vue-recycle-scroller {
+    scrollbar-color: #2CEB45 #F0F0F0;
+    scrollbar-width: thin;
+}
+
+.vue-recycle-scroller::-webkit-scrollbar {
+    width: 6px;
+}
+
+.vue-recycle-scroller::-webkit-scrollbar-thumb {
+    background-color: #16A34A;
+    border-radius: 10px;
+}
+
+.vue-recycle-scroller::-webkit-scrollbar-track {
+    background: transparent;
+}
