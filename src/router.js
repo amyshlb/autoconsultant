@@ -7,6 +7,7 @@ import StepView from '@/views/StepView.vue'
 import PostsView from '@/views/PostsView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import PostView from '@/views/PostView.vue'
+import PostsLayout from '@/layouts/PostsLayout.vue'
 
 const routes = [
   {
@@ -41,12 +42,18 @@ const routes = [
   },
   {
     path: '/:locale/posts',
-    component: PostsView
-  },
-  {
-    path: '/:locale/posts/:id',
-    name: 'post',
-    component: PostView
+    component: PostsLayout,
+    children: [
+      {
+        path: '',
+        component: PostsView
+      },
+      {
+        path: ':id',
+        name: 'post',
+        component: PostView
+      },
+    ]
   },
   {
     path: '/:pathMatch(.*)*',
