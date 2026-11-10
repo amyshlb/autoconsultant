@@ -1,18 +1,13 @@
-
 <template>
     <main
         class="min-h-screen bg-brand-bg text-brand-dark px-[40px] pt-[28px] pb-[40px] max-md:px-[20px] max-md:pt-[20px]"
     >
-        <Header
-            :back-to="`/${locale}/posts`"
-            :back-text="t('posts.backToPosts')"
-        />
 
         <section
             class="max-w-[1360px] mx-auto mt-[36px] bg-brand-white rounded-[52px] px-[60px] py-[72px] max-md:mt-[36px] max-md:rounded-[32px] max-md:px-[24px] max-md:py-[40px]"
         >
 
-            <Loader v-if="isLoading" />
+            <Loader v-if="isPostLoading" />
 
             <p v-else-if="error" class="mt-[40px] text-brand-gray">
                 {{ error }}
@@ -42,25 +37,26 @@
                         {{ commentsError }}
                     </p>
 
-                    <div v-else class="flex flex-col gap-[20px]">
-                        <article
-                            v-for="comment in comments"
-                            :key="comment.id"
-                            class="rounded-[24px] border border-brand-light-gray p-[28px] max-md:p-[20px]"
+                    <div 
+                        v-else-if="isCommentsLoading"
+                        class="flex flex-col gap-[20px]"
+                    >
+                        <div
+                            v-for="item in 3"
+                            :key="item"
+                            class="rounded-[24px] border border-brand-light-gray p-[28px] animate-pulse max-md:p-[20px]"
                         >
-                            <h3 class="text-[24px] font-semibold max-md:text-[17px]">
-                                {{ comment.name }}
-                            </h3>
-
-                            <p class="mt-[8px] text-brand-green text-[20px] max-md:text-[14px]">
-                                {{ comment.email }}
-                            </p>
-
-                            <p class="mt-[16px] text-brand-gray leading-[1.5] max-md:text-[14px]">
-                                {{ comment.body }}
-                            </p>
-                        </article>
+                            <div class="h-[24px] w-1/2 rounded bg-brand-light-gray"></div>
+                            <div class="h-[18px] w-1/3 rounded bg-brand-light-gray mt-[12px]"></div>
+                            <div class="h-[14px] w-full rounded bg-brand-light-gray mt-[20px]"></div>
+                            <div class="h-[14px] w-4/5 rounded bg-brand-light-gray mt-[8px]"></div>
+                        </div>
                     </div>
+
+                    <CommentsList
+                        v-else
+                        :comments="comments"
+                    />
                 </section>
             </template>
         </section>
@@ -70,18 +66,20 @@
 import { ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import Header from '@/components/Header.vue'
 import Loader from '@/components/Loader.vue'
+import CommentsList from '@/components/Posts/CommentsList.vue'
 
 const route = useRoute()
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const post = ref(null)
-const isLoading = ref(true)
+const isPostLoading = ref(true)
+const isCommentsLoading = ref(true)
 const error = ref('')
 const comments = ref([])
 const commentsError = ref('')
 
 const fetchPost = async () => {
+    isPostLoading.value = true
     error.value = ''
 
     try {
@@ -95,13 +93,19 @@ const fetchPost = async () => {
         post.value = await response.json()
     } catch (err) {
         error.value = t('posts.postError')
-    } 
+        throw err
+    }  finally {
+        isPostLoading.value = false
+    }
 }
 
 const fetchComments = async () => {
+    isCommentsLoading.value = true
     commentsError.value = ''
 
     try {
+        // await new Promise(resolve => setTimeout(resolve, 3000))
+
         const response = await fetch(
             `https://jsonplaceholder.typicode.com/posts/${route.params.id}/comments`
         )
@@ -113,17 +117,16 @@ const fetchComments = async () => {
         comments.value = await response.json()
     } catch (err) {
         commentsError.value = t('posts.commentsError')
+        throw err
+    }  finally {
+        isCommentsLoading.value = false
     }
 }
 const fetchData = async () => {
-    isLoading.value = true
-    
-    await Promise.all([
+    await Promise.allSettled([
         fetchPost(),
         fetchComments()
     ])
-
-    isLoading.value = false
 }
 
 watch(
