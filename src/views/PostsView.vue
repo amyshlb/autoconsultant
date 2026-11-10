@@ -2,10 +2,7 @@
     <main
         class="min-h-screen bg-brand-bg text-brand-dark px-[40px] pt-[28px] pb-[40px] max-md:px-[20px] max-md:pt-[20px]"
     >
-        <Header
-            :back-to="`/${locale}`"
-            :back-text="t('posts.back')"
-        />
+
 
         <section
             class="max-w-[1360px] mx-auto mt-[36px] bg-brand-white rounded-[52px] px-[60px] py-[72px] min-h-[440px] max-md:mt-[36px] max-md:rounded-[32px] max-md:px-[24px] max-md:py-[40px] max-md:min-h-[360px]"
@@ -34,28 +31,55 @@
                 v-else
                 class="mt-[56px] flex flex-col gap-[24px]"
             >
-                <article
-                    v-for="post in posts"
+                <PostCard
+                    v-for="post in paginatedPosts"
                     :key="post.id"
-                    class="rounded-[32px] border border-brand-light-gray p-[36px] transition-shadow hover:shadow-md max-md:rounded-[24px] max-md:p-[24px]"
+                    :post="post"
+                />
+            
+                <div
+                    class="mt-[48px] flex items-center justify-center gap-[12px] max-md:gap-[6px]"
                 >
-                    <h2 class="text-[36px] font-bold leading-[1.5] tracking-[-1px] max-md:text-[22px]">
-                        {{ post.title }}
-                    </h2>
+                    <button
+                        @click="goToPage(currentPage - 1)"
+                        :disabled="currentPage === 1"
+                        class="px-[16px] py-[10px] rounded-[12px] bg-brand-bg disabled:opacity-40 max-md:px-[10px]"
+                    >
+                        ←
+                    </button>
 
-                    <p class="mt-[20px] text-[20px] leading-[1.5] text-brand-gray max-md:text-[15px]">
-                        {{ post.body }}
-                    </p>
-
-                    <div class="mt-[28px] flex justify-end">
-                        <router-link
-                            :to="`/${locale}/posts/${post.id}`"
-                            class="bg-brand-blue text-brand-white rounded-full px-[32px] py-[16px] text-[16px] font-semibold transition-opacity hover:opacity-70 max-md:px-[24px] max-md:py-[13px] max-md:text-[14px]"
+                    <template
+                        v-for="(page, index) in visiblePages"
+                        :key="index"
+                    >
+                        <span
+                            v-if="page === '...'"
+                            class="flex items-center justify-center w-[24px]"
                         >
-                            {{ t('posts.details') }}
-                        </router-link>
-                    </div>
-                </article>
+                            ...
+                        </span>
+
+                        <button
+                            v-else
+                            @click="goToPage(page)"
+                            class="w-[42px] h-[42px] rounded-[12px] font-semibold transition-colors max-md:w-[34px] max-md:h-[34px]"
+                            :class="currentPage === page
+                                ? 'bg-brand-green text-brand-dark'
+                                : 'bg-brand-bg hover:bg-brand-light-gray'"
+                        >
+                            {{ page }}
+                        </button>
+                    </template>
+
+                    <button
+                        @click="goToPage(currentPage + 1)"
+                        :disabled="currentPage === totalPages"
+                        class="px-[16px] py-[10px] rounded-[12px] bg-brand-bg disabled:opacity-40 max-md:px-[10px]"
+                    >
+                        →
+                    </button>
+                </div>
+
             </div>
         </section>
     </main>
@@ -63,11 +87,11 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import Loader from '@/components/Loader.vue'
-import Header from '@/components/Header.vue'
+import PostCard from '@/components/Posts/PostCard.vue'
 
-const { t, locale } = useI18n()
+const { t } = useI18n()
 const posts = ref([])
 const isLoading = ref(true)
 const error = ref('')
@@ -86,6 +110,49 @@ const fetchPosts = async () => {
     } finally {
         isLoading.value = false
     }
+}
+
+const currentPage = ref(1)
+const postsPerPage = 10
+
+const totalPages = computed(() => {
+    return Math.ceil(posts.value.length / postsPerPage)
+})
+
+const paginatedPosts = computed(() => {
+    const start = (currentPage.value - 1) * postsPerPage
+    const end = start + postsPerPage
+
+    return posts.value.slice(start, end)
+})
+const visiblePages = computed(() => {
+    if (totalPages.value <= 5) {
+        return Array.from(
+            { length: totalPages.value },
+            (_, index) => index + 1
+        )
+    }
+
+    if (currentPage.value <= 3) {
+        return [1, 2, 3, '...', totalPages.value - 1, totalPages.value]
+    }
+
+    if (currentPage.value >= totalPages.value - 2) {
+        return [1, 2, '...', totalPages.value - 2, totalPages.value - 1, totalPages.value]
+    }
+
+    return [
+        1,
+        '...',
+        currentPage.value - 1,
+        currentPage.value,
+        currentPage.value + 1,
+        '...',
+        totalPages.value
+    ]
+})
+const goToPage = (page) => {
+        currentPage.value = page
 }
 
 onMounted(() => {
