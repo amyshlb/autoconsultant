@@ -4,13 +4,13 @@
         :min-item-size="160"
         :buffer="0"
         key-field="id"
-        class="h-[600px]"
+        class="h-[600px] max-md:h-[420px]"
     >
         <template #default="{ item, active }">
             <DynamicScrollerItem
                 :item="item"
                 :active="active"
-                class="pb-[20px]"
+                class="pr-[10px] pb-[20px] max-md:pb-[14px]"
             >
                 <CommentCard :comment="item" />
             </DynamicScrollerItem>
