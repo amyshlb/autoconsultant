@@ -16,7 +16,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import PostsHeader from '@/components/Posts/PostsHeader.vue'
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/Default/Footer.vue'
 
 const route = useRoute()
 const { t } = useI18n()
