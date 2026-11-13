@@ -2,8 +2,6 @@
     <main
         class="min-h-screen bg-brand-bg text-brand-dark px-[40px] pt-[28px] pb-[40px] max-md:px-[20px] max-md:pt-[20px]"
     >
-
-
         <section
             class="max-w-[1360px] mx-auto mt-[36px] bg-brand-white rounded-[52px] px-[60px] py-[72px] min-h-[440px] max-md:mt-[36px] max-md:rounded-[32px] max-md:px-[24px] max-md:py-[40px] max-md:min-h-[360px]"
         >
@@ -32,12 +30,13 @@
                 class="mt-[56px] flex flex-col gap-[24px]"
             >
                 <PostCard
-                    v-for="post in paginatedPosts"
+                    v-for="post in posts"
                     :key="post.id"
                     :post="post"
                 />
             
                 <div
+                    v-if="totalPages > 1"
                     class="mt-[48px] flex items-center justify-center gap-[12px] max-md:gap-[6px]"
                 >
                     <button
@@ -59,16 +58,22 @@
                             ...
                         </span>
 
-                        <button
+                        <a
                             v-else
-                            @click="goToPage(page)"
-                            class="w-[42px] h-[42px] rounded-[12px] font-semibold transition-colors max-md:w-[34px] max-md:h-[34px]"
+                            :href="router.resolve({ 
+                                query: { 
+                                    ...route.query, 
+                                    page 
+                                } 
+                            }).href"
+                            @click.prevent="goToPage(page)"
+                            class="w-[42px] h-[42px] rounded-[12px] font-semibold transition-colors flex items-center justify-center max-md:w-[34px] max-md:h-[34px]"
                             :class="currentPage === page
                                 ? 'bg-brand-green text-brand-dark'
-                                : 'bg-brand-bg hover:bg-brand-light-gray'"
+                                : 'bg-brand-bg hover:bg-brand-green hover:text-brand-dark'"
                         >
                             {{ page }}
-                        </button>
+                        </a>
                     </template>
 
                     <button
@@ -87,44 +92,28 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n'
-import { ref, onMounted, computed } from 'vue'
-import Loader from '@/components/Loader.vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import Loader from '@/components/Default/Loader.vue'
 import PostCard from '@/components/Posts/PostCard.vue'
+import api from '@/api/axios.js'
 
 const { t } = useI18n()
+const route = useRoute()
+const router = useRouter()
+
 const posts = ref([])
 const isLoading = ref(true)
 const error = ref('')
 
-const fetchPosts = async () => {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
-
-        if (!response.ok) {
-            throw new Error('Failed to load posts')
-        }
-
-        posts.value = await response.json()
-    } catch (err) {
-        error.value = t('posts.loadError')
-    } finally {
-        isLoading.value = false
-    }
-}
-
 const currentPage = ref(1)
+const totalPosts = ref(0)
 const postsPerPage = 10
 
 const totalPages = computed(() => {
-    return Math.ceil(posts.value.length / postsPerPage)
+    return Math.ceil(totalPosts.value / postsPerPage)
 })
 
-const paginatedPosts = computed(() => {
-    const start = (currentPage.value - 1) * postsPerPage
-    const end = start + postsPerPage
-
-    return posts.value.slice(start, end)
-})
 const visiblePages = computed(() => {
     if (totalPages.value <= 5) {
         return Array.from(
@@ -151,11 +140,49 @@ const visiblePages = computed(() => {
         totalPages.value
     ]
 })
-const goToPage = (page) => {
+
+const fetchPosts = async (page = currentPage.value) => {
+    isLoading.value = true
+    error.value = ''
+
+    try {
+        const response = await api.get('/posts', {
+            params: {
+                _page: page,
+                _limit: postsPerPage
+            }
+        })
+
+        posts.value = response.data
+        totalPosts.value = Number(response.headers['x-total-count'])
         currentPage.value = page
+    } catch (err) {
+        error.value = t('posts.loadError')
+    } finally {
+        isLoading.value = false
+    }
 }
 
-onMounted(() => {
-    fetchPosts()
-})
+const goToPage = (page) => {
+    router.push({
+        query: {
+            ...route.query,
+            page: page
+        }
+    })
+}
+
+watch(
+    () => route.query.page,
+    (page) => {
+        const pageNumber = Number(page)
+
+        fetchPosts(
+            Number.isInteger(pageNumber) && pageNumber > 0
+                ? pageNumber
+                : 1
+        )
+    },
+    { immediate: true }
+)
 </script>

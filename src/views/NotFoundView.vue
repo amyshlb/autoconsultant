@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-import Header from '@/components/Header.vue'
-import Footer from '@/components/Footer.vue'
+import Header from '@/components/Default/Header.vue'
+import Footer from '@/components/Default/Footer.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
