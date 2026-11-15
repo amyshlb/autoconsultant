@@ -111,25 +111,22 @@
             </div>
 
             <div
-                class="relative w-full max-w-[1248px] h-[702px] bg-brand-light-gray rounded-[52px] mx-auto mt-[36px] mb-[-56px] shadow-sm overflow-hidden flex items-center justify-center group cursor-pointer max-md:w-full max-md:h-[184px] max-md:rounded-[24px] max-md:mt-[16px] max-md:mb-0"
+                class="relative w-full max-w-[1248px] h-[702px] bg-brand-light-gray rounded-[52px] mx-auto mt-[36px] mb-[-56px] shadow-sm overflow-hidden max-md:w-full max-md:h-[184px] max-md:rounded-[24px] max-md:mt-[16px] max-md:mb-0"
             >
-                <div
-                    class="w-[131.52px] h-[133.91px] bg-brand-white rounded-full flex items-center justify-center shadow-lg translate-x-[10px] translate-y-[10px] group-hover:scale-105 transition-transform duration-300 z-10 max-md:w-[35px] max-md:h-[36px]"
-                >
-                    <img
-                        src="@/assets/images/pause.svg"
-                        :alt="t('step.pause-alt')"
-                        class="w-full h-full object-contain"
-                    >
-                </div>
+                <iframe
+                    class="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/mA9HZEJfmGw?si=wZcaP7z5RECIk5Sl"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
             </div>
-
         </div>
-
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import serviceDataRu from '@/assets/images/service-data-ru.svg';
@@ -140,13 +137,13 @@ import handEn from '@/assets/images/hand-en.svg';
 import handKk from '@/assets/images/hand-kk.svg';
 
 const { t, locale } = useI18n();
-const serviceDataImage = computed(() => {
+const serviceDataImage = computed<string>(() => {
     if (locale.value === 'kk') return serviceDataKk;
     if (locale.value === 'en') return serviceDataEn;
 
     return serviceDataRu;
 });
-const handImage = computed(() => {
+const handImage = computed<string>(() => {
     if (locale.value === 'kk') return handKk;
     if (locale.value === 'en') return handEn;
 

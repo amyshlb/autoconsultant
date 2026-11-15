@@ -49,19 +49,24 @@
 </template>
 
 
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
-const isMenuOpen = ref(false);
+interface MenuLink {
+    path: string;
+    text: string;
+}
 
-const closeMenu = () => {
+const isMenuOpen = ref<boolean>(false);
+
+const closeMenu = (): void => {
     isMenuOpen.value = false;
 };
 
 const { t, locale } = useI18n();
 
-const menuLinks = computed(() => [
+const menuLinks = computed<MenuLink[]>(() => [
     {
         path: `/${locale.value}/posts`,
         text: t('header.posts'),

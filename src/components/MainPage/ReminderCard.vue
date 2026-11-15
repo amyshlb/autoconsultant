@@ -28,23 +28,16 @@
     </div>
 </template>
 
-<script setup>
-defineProps({
-    title: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true
-    },
-    imageClass: {
-        type: String,
-        default: 'max-h-[140px]'
-    },
-    textClass: {
-        type: String,
-        default: ''
-    }
+<script setup lang="ts">
+interface Props {
+    title: string;
+    image: string;
+    imageClass?: string;
+    textClass?: string;
+}
+
+withDefaults(defineProps<Props>(), {
+    imageClass: 'max-h-[140px]',
+    textClass: ''
 });
 </script>

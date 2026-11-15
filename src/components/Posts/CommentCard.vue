@@ -16,11 +16,13 @@
     </article>
 </template>
 
-<script setup>
-defineProps({
-    comment: {
-        type: Object,
-        required: true
-    }
-})
+<script setup lang="ts">
+interface Comment {
+    name: string;
+    email: string;
+    body: string;
+}
+defineProps<{
+    comment: Comment;
+}>()
 </script>
