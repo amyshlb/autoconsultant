@@ -1,6 +1,6 @@
 <template>
     <div class="flex min-h-screen flex-col">
-        <Header />
+        <Header v-if="showLayout" />
         
         <main class="flex flex-1 flex-col items-center justify-center text-center">
             <h1 class="text-[96px] font-bold">404</h1>
@@ -17,7 +17,7 @@
             </router-link>
         </main>
 
-        <Footer />
+        <Footer v-if="showLayout" />
     </div>
 </template>
 
@@ -27,4 +27,11 @@ import Footer from '@/components/Default/Footer.vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
+
+defineProps({
+    showLayout: {
+        type: Boolean,
+        default: true
+    }
+})
 </script>

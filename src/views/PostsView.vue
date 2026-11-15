@@ -1,5 +1,11 @@
 <template>
+    <NotFoundView 
+        v-if="!isLoading && !error && posts.length === 0" 
+        :show-layout="false"
+    />
+
     <main
+        v-else
         class="min-h-screen bg-brand-bg text-brand-dark px-[40px] pt-[28px] pb-[40px] max-md:px-[20px] max-md:pt-[20px]"
     >
         <section
@@ -23,7 +29,6 @@
             <p v-else-if="error">
                 {{ error }}
             </p>
-
 
             <div
                 v-else
@@ -97,6 +102,7 @@ import { useRoute, useRouter } from 'vue-router'
 import Loader from '@/components/Default/Loader.vue'
 import PostCard from '@/components/Posts/PostCard.vue'
 import api from '@/api/axios.js'
+import NotFoundView from './NotFoundView.vue'
 
 const { t } = useI18n()
 const route = useRoute()
@@ -176,6 +182,16 @@ watch(
     () => route.query.page,
     (page) => {
         const pageNumber = Number(page)
+
+        if (!page) {
+            router.replace({
+                query: {
+                    ...route.query,
+                    page: 1
+                }
+            })
+            return
+        }
 
         fetchPosts(
             Number.isInteger(pageNumber) && pageNumber > 0
