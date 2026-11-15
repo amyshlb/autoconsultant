@@ -116,7 +116,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import ReminderCard from './ReminderCard.vue';
@@ -131,13 +131,13 @@ import moreEn from '@/assets/images/more-en.svg';
 import moreRu from '@/assets/images/more-ru.svg';
 
 const { t, locale } = useI18n();
-const phraseImage = computed(() => {
+const phraseImage = computed<string>(() => {
     if (locale.value === 'kk') return phraseKk;
     if (locale.value === 'en') return phraseEn;
 
     return phraseRu;
 });
-const moreImage = computed(() => {
+const moreImage = computed<string>(() => {
     if (locale.value === 'kk') return moreKk;
     if (locale.value === 'en') return moreEn;
 

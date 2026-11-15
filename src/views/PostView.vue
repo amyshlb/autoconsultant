@@ -28,7 +28,10 @@
                     </p>
                 </article>
 
-                <section class="mt-[72px]">
+                <section
+                    v-if="isCommentsLoading || commentsError || comments.length > 0"
+                    class="mt-[72px]"
+                >
                     <h2 class="text-[44px] font-bold mb-[32px] max-md:text-[26px]">
                         {{ t('posts.comments') }}
                     </h2>
@@ -202,6 +205,15 @@ const fetchComments = async (page = commentsCurrentPage.value) => {
         )
 
         comments.value = response.data
+        if (response.data.length === 0 && page > 1) {
+            router.replace({
+                query: {
+                    ...route.query,
+                    commentsPage: 1
+                }
+            })
+            return
+        }
         totalComments.value = Number(response.headers['x-total-count'])
         commentsCurrentPage.value = page
     } catch (err) {
@@ -211,37 +223,34 @@ const fetchComments = async (page = commentsCurrentPage.value) => {
         isCommentsLoading.value = false
     }
 }
-const fetchData = async (page = 1) => {
-    await Promise.allSettled([
-        fetchPost(),
-        fetchComments(page)
-    ])
-}
 
 const goToCommentPage = (page) => {
     router.push({
         query: {
             ...route.query,
-            page: page
+            commentsPage: page
         }
     })
 }
 watch(
     () => route.params.id,
     () => {
-        const page = Number(route.query.page)
-
-        fetchData(
-            Number.isInteger(page) && page > 0
-            ? page
-            : 1
-        )
+        fetchPost()
     },
     { immediate: true }
 )
 watch(
-    () => route.query.page,
-    (page) => {
+    () => [route.params.id, route.query.commentsPage],
+    ([id, page]) => {
+        if (!page) {
+            router.replace({
+                query: {
+                    ...route.query,
+                    commentsPage: 1
+                }
+            })
+            return
+        }
         const currentPage = Number(page)
 
         fetchComments(
@@ -249,6 +258,7 @@ watch(
             ? currentPage
             : 1
         )
-    }
+    },
+    { immediate: true }
 )
 </script>

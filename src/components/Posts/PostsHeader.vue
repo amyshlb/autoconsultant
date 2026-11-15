@@ -34,17 +34,14 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LanguageSwitcher from '@/LanguageSwitcher.vue'
 
-defineProps({
-    backTo: {
-        type: String,
-        default: ''
-    },
-    backText: {
-        type: String,
-        default: ''
-    }
+withDefaults(defineProps<{
+    backTo?: string;
+    backText?: string;
+}>(), {
+    backTo: '',
+    backText: ''
 })
 </script>

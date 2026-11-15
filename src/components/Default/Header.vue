@@ -60,28 +60,34 @@
     </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import LanguageSwitcher from '@/LanguageSwitcher.vue';
 import BurgerMenu from '@/components/Default/BurgerMenu.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
+
 const { t, locale } = useI18n();
 
-const navLinks = computed (() => [
+interface NavLink {
+    path: string;
+    label: string;
+    isButton?: boolean;
+}
+
+const navLinks = computed<NavLink[]>(() => [
     { path: `/${locale.value}/posts`, label: t('header.posts') },
     { path: `/${locale.value}/how-it-works`, label: t('header.how-it-works') },
     { path: `/${locale.value}/faq`, label: t('header.faq') },
     { path: `/${locale.value}/buy`, label: t('header.buy'), isButton: true },
 ]);
 
-const props = defineProps({
-    backTo: {
-        type: String,
-        default: ''
-    },
-    backText: {
-        type: String,
-        default: ''
-    }
-})
+interface Props {
+    backTo?: string;
+    backText?: string;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+    backTo: '',
+    backText: ''
+});
 </script>

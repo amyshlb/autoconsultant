@@ -21,15 +21,17 @@
     </router-link>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 
-defineProps({
-    post: {
-        type: Object,
-        required: true
-    }
-})
+interface Post {
+    id: number;
+    title: string;
+    body: string;
+}
+defineProps<{
+    post: Post;
+}>()
 
 const { t, locale } = useI18n()
 </script>

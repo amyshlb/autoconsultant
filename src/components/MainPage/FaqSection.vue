@@ -70,14 +70,20 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
+interface FaqItem {
+    question: string;
+    answer: string;
+    isOpen: boolean;
+}
+
 const { t, tm, locale } = useI18n()
 
-const faqList = reactive(
-    tm('faq.questions').map((item) => ({
+const faqList = reactive<FaqItem[]>(
+    (tm('faq.questions') as FaqItem[]).map((item) => ({
         ...item,
         isOpen: false
     }))
@@ -85,13 +91,13 @@ const faqList = reactive(
 
 watch(locale, () => {
     faqList.forEach((item, index) => {
-        const question = tm('faq.questions')[index]
+        const question = (tm('faq.questions') as FaqItem[])[index]
         item.question = question.question
         item.answer = question.answer
     })
 })
 
-const toggleAccordion = (index) => {
+const toggleAccordion = (index: number): void => {
     if (faqList[index].isOpen) {
         faqList.forEach((item, itemIndex) => {
             if (itemIndex !== index) {

@@ -18,14 +18,17 @@
     </DynamicScroller>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { DynamicScroller, DynamicScrollerItem } from 'vue-virtual-scroller'
 import CommentCard from '@/components/Posts/CommentCard.vue'
 
-defineProps({
-    comments: {
-        type: Array,
-        required: true
-    }
-})
+interface Comment {
+    id: number;
+    name: string;
+    email: string;
+    body: string;
+}
+defineProps<{
+    comments: Comment[]
+}>()
 </script>
